@@ -15,8 +15,8 @@ if __name__ == '__main__':
         print("Неверный размер списка", file=sys.stderr)
         exit(1)
 
-    for i, m in enumerate(A):
-        if m == max(A):
+    for i in range(len(A)):
+        if A[i] == max(A):
             x = i
             break
 
