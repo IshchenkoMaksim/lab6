@@ -15,10 +15,13 @@ if __name__ == '__main__':
         print("Неверный размер списка", file=sys.stderr)
         exit(1)
 
-    for i in range(len(A)):
-        if A[i] == max(A):
-            x = i
-            break
+    n = 0
+    for i, a in enumerate(A):
+        if a > A[n]:
+            n = i
 
-    A[0], A[x] = A[x], A[0]
-    print(A)
+    if n == 0:
+        print(A)
+    else:
+        A[0], A[n] = A[n], A[0]
+        print(A)

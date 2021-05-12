@@ -9,14 +9,16 @@ import sys
 if __name__ == '__main__':
 
     A = list(map(int, input().split()))
-    x = 0
+    n = 0
 
     if len(A) != 10:
         print("Неверный размер списка", file=sys.stderr)
         exit(1)
 
-    k = list(i for i in range(len(A)) if A[i] == max(A))
-    k = k[0]
-
-    A[0], A[k] = A[k], A[0]
-    print(A)
+    n = max(a for i, a in enumerate(A))
+    n = A.index(n)
+    if n == 0:
+        print(A)
+    else:
+        A[0], A[n] = A[n], A[0]
+        print(A)

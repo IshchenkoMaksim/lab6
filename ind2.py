@@ -12,22 +12,21 @@ import math
 if __name__ == '__main__':
     A = list(map(float, input().split()))
     A_0 = 0
-    x = 0
+    n = 0
 
     if len(A) != 10:
         print("Неверный размер списка", file=sys.stderr)
         exit(1)
 
-    for i in range(len(A)):
-        if A[i] == 0:
+    for i in A:
+        if i == 0:
             A_0 += 1
 
-    for i in range(len(A)):
-        if A[i] == min(A):
-            x = i
-            break
+    for i, a in enumerate(A):
+        if a < A[n]:
+            n = i
 
-    s = sum(A[x+1:])
+    s = sum(A[n+1:])
     A = sorted(A, key=lambda y: math.fabs(y))
 
     print(f"Отсортированный список: {A}\nКоличество нулей: {A_0}\nСумма: {s}")
